@@ -1,11 +1,13 @@
 const express=require("express")
 const app=express()
 const {connection}=require("./config/db")
+const cors=require("cors")
 const userroute=require("./routes/user")
 const dashboard=require("./routes/dashboard")
 
-app.use(express.json())
 
+app.use(express.json())
+app.use(cors())
 app.use(userroute)
 app.use(dashboard)
 
